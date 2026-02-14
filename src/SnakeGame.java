@@ -27,6 +27,8 @@ public class SnakeGame extends JPanel implements ActionListener {
 
     //Game Logic
     Timer gameLoop;
+    int velocityX;
+    int velocityY;
 
     SnakeGame(int boardWidth, int boardHeight){
         this.boardWidth = boardWidth;
@@ -39,6 +41,9 @@ public class SnakeGame extends JPanel implements ActionListener {
         food = new Tile(10, 10);
         random = new Random();
         placeFood();
+
+        velocityX = 0;
+        velocityY = 1;
 
         gameLoop = new Timer(100, this);
         gameLoop.start();
@@ -72,8 +77,13 @@ public class SnakeGame extends JPanel implements ActionListener {
         food.y = random.nextInt(boardHeight/tileSize);
     }
 
-    @Override
+    public void move(){
+        // Snake Head
+        snakeHead.x += velocityX;
+        snakeHead.y += velocityY;
+    }
     public void actionPerformed(ActionEvent e) {
+        move();
         repaint();
     }
 }
