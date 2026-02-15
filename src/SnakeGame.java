@@ -106,7 +106,7 @@ public class SnakeGame extends JPanel implements ActionListener, KeyListener {
                 snakePart.y = snakeHead.y;
             }
             else {
-                Tile prevSnake = snakeBody.get(i-1;)
+                Tile prevSnakePart = snakeBody.get(i-1);
                 snakePart.x = prevSnakePart.x;
                 snakePart.y = prevSnakePart.y;  
             }
